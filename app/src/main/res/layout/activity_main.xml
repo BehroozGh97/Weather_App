@@ -83,7 +83,7 @@
                 android:layout_weight="0.5"
                 android:background="@android:color/transparent"
                 android:src="@drawable/ic_search"
-                android:tint="@color/white"/>
+                app:tint="@color/white" />
 
         </LinearLayout>
         <TextView
