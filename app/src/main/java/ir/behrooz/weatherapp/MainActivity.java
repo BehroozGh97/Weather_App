@@ -129,7 +129,6 @@ public class MainActivity extends AppCompatActivity {
         Geocoder gcd = new Geocoder(getBaseContext(), Locale.getDefault());
         try {
             List<Address> addresses = gcd.getFromLocation(latitude, longitude, 10);
-            ;
 
             for (Address adr : addresses) {
                 if (adr != null) {
@@ -180,7 +179,7 @@ public class MainActivity extends AppCompatActivity {
 
 
                     JSONObject forecastObj = response.getJSONObject("forecast");
-                    JSONObject forcast0 = response.getJSONArray("forecastday").getJSONObject(0);
+                    JSONObject forcast0 = forecastObj.getJSONArray("forecastday").getJSONObject(0);
                     JSONArray hourArray = forcast0.getJSONArray("hour");
 
                     for (int i=0 ; i<hourArray.length(); i++ ){

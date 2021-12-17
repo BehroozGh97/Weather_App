@@ -37,15 +37,15 @@ public class WeatherRVAdapter extends RecyclerView.Adapter<WeatherRVAdapter.View
     @Override
     public void onBindViewHolder(@NonNull  WeatherRVAdapter.ViewHolder holder, int position) {
 
-        WeatherRVModel model =weatherRVModelArrayList.get(position);
-        holder.temperatureTV.setText(model.getTemperature() + "°C");
-        Picasso.get().load("http://".concat(model.getIcon())).into(holder.conditionIV);
-        holder.windTV.setText(model.getWindSpeed() + "km/h");
+        WeatherRVModel modal = weatherRVModelArrayList.get(position);
+        holder.temperatureTV.setText(modal.getTemperature() + "°C");
+        Picasso.get().load("http://".concat(modal.getIcon())).into(holder.conditionIV);
+        holder.windTV.setText(modal.getWindSpeed() + "km/h");
         SimpleDateFormat input = new SimpleDateFormat("yyyy-MM-dd hh:mm");
         SimpleDateFormat output = new SimpleDateFormat("hh:mm aa");
 
         try {
-            Date t =  input.parse(model.getTime());
+            Date t =  input.parse(modal.getTime());
             holder.timeTV.setText(output.format(t));
         } catch (ParseException e){
             e.printStackTrace();
