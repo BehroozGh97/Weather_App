@@ -53,7 +53,7 @@ public class MainActivity extends AppCompatActivity {
     private WeatherRVAdapter weatherRVAdapter;
     private LocationManager locationManager;
     private int PERMISSION_CODE = 1;
-    private String cityName;
+    private String cityName="tehran";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -87,9 +87,10 @@ public class MainActivity extends AppCompatActivity {
                             ACCESS_COARSE_LOCATION}, PERMISSION_CODE);
         }
 
-        Location location = locationManager.getLastKnownLocation(LocationManager.NETWORK_PROVIDER);
+       // Location location = locationManager.getLastKnownLocation(LocationManager.NETWORK_PROVIDER);
 
-        cityName = getCityName(location.getLongitude(),location.getLatitude());
+        //cityName = getCityName(location.getLongitude(),location.getLatitude());
+       // cityName = getCityName(null,location.getLatitude());
 
         getWeatherInfo(cityName);
         searchIV.setOnClickListener(new View.OnClickListener() {
@@ -124,7 +125,9 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-    private String getCityName(double longitude, double latitude) {
+
+   private String getCityName(double longitude, double latitude) {
+
         String cityName = "Not found";
         Geocoder gcd = new Geocoder(getBaseContext(), Locale.getDefault());
         try {
@@ -147,6 +150,8 @@ public class MainActivity extends AppCompatActivity {
         } catch (IOException e) {
             e.printStackTrace();
         }
+
+
         return cityName;
     }
 
@@ -172,9 +177,9 @@ public class MainActivity extends AppCompatActivity {
                     conditionTV.setText(condition);
                     if (isDay == 1){
                         //morning
-                        Picasso.get().load("https://raw.githubusercontent.com/njdunk07/NJ-Weather-GFG/master/app/src/main/res/drawable/weather_background.jpg").into(backIV);
+                        Picasso.get().load("http://raw.githubusercontent.com/njdunk07/NJ-Weather-GFG/master/app/src/main/res/drawable/weather_background.jpg").into(backIV);
                     }else {
-                        Picasso.get().load("https://raw.githubusercontent.com/njdunk07/NJ-Weather-GFG/master/app/src/main/res/drawable/city_background.jpeg").into(backIV);
+                        Picasso.get().load("http://raw.githubusercontent.com/njdunk07/NJ-Weather-GFG/master/app/src/main/res/drawable/city_background.jpeg").into(backIV);
                     }
 
 
