@@ -29,16 +29,17 @@
 
 
         <TextView
+            android:id="@+id/idTVCityName"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/idTVCityName"
+            android:layout_marginTop="30dp"
+            android:gravity="center"
+            android:padding="20dp"
             android:text="City Name"
             android:textAlignment="center"
-            android:gravity="center"
-            android:textSize="18sp"
-            android:layout_marginTop="30dp"
             android:textColor="@color/white"
-            android:padding="20dp" />
+            android:textStyle="bold"
+            android:textSize="23dp" />
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -78,7 +79,7 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:id="@+id/idIVSearch"
-                android:layout_gravity="center"
+                android:layout_gravity="center_vertical|center"
                 android:layout_margin="10dp"
                 android:layout_weight="0.5"
                 android:background="@android:color/transparent"
@@ -86,57 +87,66 @@
                 app:tint="@color/white" />
 
         </LinearLayout>
+<RelativeLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_centerInParent="true">
+
+    <TextView
+        android:id="@+id/idTVTemperature"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginBottom="30dp"
+        android:gravity="center_horizontal"
+        android:padding="5dp"
+        android:text="23"
+        android:textColor="@color/white"
+        android:textSize="80dp" />
+
+
+    <ImageView
+        android:id="@+id/idIVIcon"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:layout_below="@id/idTVTemperature"
+        android:layout_centerHorizontal="true"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginBottom="10dp"
+        android:src="@mipmap/ic_launcher" />
+
+    <TextView
+        android:id="@+id/idTVCondition"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/idIVIcon"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginBottom="10dp"
+        android:gravity="center"
+        android:text="Condition"
+        android:textAlignment="center"
+        android:textColor="@color/white" />
+</RelativeLayout>
+
 
         <TextView
-            android:id="@+id/idTVTemperature"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@id/LLEdt"
-            android:layout_marginStart="10dp"
-            android:layout_marginTop="10dp"
-            android:layout_marginEnd="10dp"
-            android:layout_marginBottom="10dp"
-            android:gravity="center_horizontal"
-            android:padding="5dp"
-            android:text="23"
-            android:textColor="@color/white"
-            android:textSize="70dp" />
-
-
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/idIVIcon"
-            android:layout_below="@id/idTVTemperature"
-            android:layout_centerHorizontal="true"
-            android:layout_margin="10dp"
-            android:src="@mipmap/ic_launcher" />
-
-        <TextView
-            android:id="@+id/idTVCondition"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/idIVIcon"
-            android:layout_marginStart="10dp"
-            android:layout_marginTop="10dp"
-            android:layout_marginEnd="10dp"
-            android:layout_marginBottom="10dp"
-            android:gravity="center"
-            android:text="Condition"
-            android:textAlignment="center"
-            android:textColor="@color/white" />
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="8dp"
-            android:layout_marginBottom="10dp"
-            android:text="Today's Weather Forecast"
-            android:textColor="@color/white"
-            android:textStyle="bold"
             android:layout_above="@id/idRVWeather"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginBottom="8dp"
 
-            />
+            android:text="Today's Hourly Weather Forecast"
+            android:textColor="@color/white"
+            android:textStyle="bold" />
 
         <androidx.recyclerview.widget.RecyclerView
             android:layout_width="match_parent"
@@ -144,6 +154,7 @@
             android:id="@+id/idRVWeather"
             android:layout_alignParentBottom="true"
             android:orientation="horizontal"
+            android:layout_marginBottom="5dp"
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
             />
 

@@ -54,11 +54,14 @@ public class MainActivity extends AppCompatActivity {
     private WeatherRVAdapter weatherRVAdapter;
     private LocationManager locationManager;
     private int PERMISSION_CODE = 1;
-    private String cityName="tehran";
+    private String cityName="Tehran";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
+                WindowManager.LayoutParams.FLAG_FULLSCREEN);
+
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS, WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS);
         getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_ADJUST_PAN);
 
@@ -179,7 +182,9 @@ public class MainActivity extends AppCompatActivity {
                     conditionTV.setText(condition);
                     if (isDay == 1){
                         //morning
-                        Picasso.get().load("http://raw.githubusercontent.com/njdunk07/NJ-Weather-GFG/master/app/src/main/res/drawable/weather_background.jpg").into(backIV);
+                        backIV.setImageResource(R.drawable.weather_backgroun);
+
+                       // Picasso.get().load("http://raw.githubusercontent.com/njdunk07/NJ-Weather-GFG/master/app/src/main/res/drawable/weather_background.jpg").into(backIV);
                     }else {
                         backIV.setImageResource(R.drawable.pic_bbg);
                      //   Picasso.get().load("http://raw.githubusercontent.com/njdunk07/NJ-Weather-GFG/master/app/src/main/res/drawable/city_background.jpeg").into(backIV);
