@@ -18,7 +18,7 @@
         android:id="@+id/idRLHome"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:visibility="gone">
+        android:visibility="visible">
 
         <ImageView
             android:layout_width="match_parent"
@@ -86,17 +86,21 @@
                 app:tint="@color/white" />
 
         </LinearLayout>
+
         <TextView
+            android:id="@+id/idTVTemperature"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/idTVTemperature"
             android:layout_below="@id/LLEdt"
-            android:layout_margin="10dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="10dp"
+            android:layout_marginBottom="10dp"
             android:gravity="center_horizontal"
             android:padding="5dp"
             android:text="23"
             android:textColor="@color/white"
-            android:textSize="70dp"/>
+            android:textSize="70dp" />
 
 
         <ImageView
@@ -109,14 +113,17 @@
             android:src="@mipmap/ic_launcher" />
 
         <TextView
+            android:id="@+id/idTVCondition"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/idTVCondition"
             android:layout_below="@id/idIVIcon"
-            android:layout_margin="10dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="10dp"
+            android:layout_marginBottom="10dp"
             android:gravity="center"
-            android:textAlignment="center"
             android:text="Condition"
+            android:textAlignment="center"
             android:textColor="@color/white" />
 
         <TextView
@@ -128,6 +135,7 @@
             android:textColor="@color/white"
             android:textStyle="bold"
             android:layout_above="@id/idRVWeather"
+
             />
 
         <androidx.recyclerview.widget.RecyclerView

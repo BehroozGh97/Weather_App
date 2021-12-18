@@ -1,5 +1,6 @@
 package ir.behrooz.weatherapp;
 
+import androidx.annotation.DrawableRes;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
@@ -59,6 +60,8 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS, WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS);
+        getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_ADJUST_PAN);
+
 
         setContentView(R.layout.activity_main);
 
@@ -178,7 +181,8 @@ public class MainActivity extends AppCompatActivity {
                         //morning
                         Picasso.get().load("http://raw.githubusercontent.com/njdunk07/NJ-Weather-GFG/master/app/src/main/res/drawable/weather_background.jpg").into(backIV);
                     }else {
-                        Picasso.get().load("http://raw.githubusercontent.com/njdunk07/NJ-Weather-GFG/master/app/src/main/res/drawable/city_background.jpeg").into(backIV);
+                        backIV.setImageResource(R.drawable.pic_bbg);
+                     //   Picasso.get().load("http://raw.githubusercontent.com/njdunk07/NJ-Weather-GFG/master/app/src/main/res/drawable/city_background.jpeg").into(backIV);
                     }
 
 
