@@ -7,6 +7,7 @@ import androidx.core.app.ActivityCompat;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.Manifest;
+import android.app.Application;
 import android.content.Context;
 import android.content.pm.PackageManager;
 import android.location.Address;
@@ -17,6 +18,8 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.view.WindowManager;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.RelativeLayout;
@@ -107,6 +110,8 @@ public class MainActivity extends AppCompatActivity {
                 }else {
 
                     cityNameTV.setText(cityName);
+                    Animation animation = AnimationUtils.loadAnimation(MainActivity.this, android.R.anim.slide_in_left);
+                    cityNameTV.startAnimation(animation);
                     getWeatherInfo(city);
                 }
 
@@ -175,10 +180,17 @@ public class MainActivity extends AppCompatActivity {
                 try {
                     String temperature = response.getJSONObject("current").getString("temp_c");
                     temperatureTV.setText(temperature + "°C");
+                    Animation animation2 = AnimationUtils.loadAnimation(MainActivity.this, android.R.anim.fade_in);
+                    temperatureTV.startAnimation(animation2);
+
                     int isDay = response.getJSONObject("current").getInt("is_day");
                     String condition = response.getJSONObject("current").getJSONObject("condition").getString("text");
                     String conditionIcon = response.getJSONObject("current").getJSONObject("condition").getString("icon");
                     Picasso.get().load("http:".concat(conditionIcon)).into(iconIV);
+                    iconIV.startAnimation(animation2);
+
+
+
                     conditionTV.setText(condition);
                     if (isDay == 1){
                         //morning
