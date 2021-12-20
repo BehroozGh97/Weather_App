@@ -72,28 +72,33 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
 
-        homeRL = findViewById(R.id.idRLHome);
-        loadingPB = findViewById(R.id.idPBLoading);
-        cityNameTV = findViewById(R.id.idTVCityName);
-        temperatureTV = findViewById(R.id.idTVTemperature);
-        conditionTV = findViewById(R.id.idTVCondition);
-        weatherRw = findViewById(R.id.idRVWeather);
-        cityEdt = findViewById(R.id.idEdtCity);
-        backIV = findViewById(R.id.idIVBack);
-        iconIV = findViewById(R.id.idIVIcon);
-        searchIV = findViewById(R.id.idIVSearch);
-        weatherRVModelArrayList = new ArrayList<>();
+        homeRL                       = findViewById(R.id.idRLHome);
+        loadingPB                    = findViewById(R.id.idPBLoading);
+        cityNameTV                   = findViewById(R.id.idTVCityName);
+        temperatureTV                = findViewById(R.id.idTVTemperature);
+        conditionTV                  = findViewById(R.id.idTVCondition);
+        weatherRw                    = findViewById(R.id.idRVWeather);
+        cityEdt                      = findViewById(R.id.idEdtCity);
+        backIV                       = findViewById(R.id.idIVBack);
+        iconIV                       = findViewById(R.id.idIVIcon);
+        searchIV                     = findViewById(R.id.idIVSearch);
+
+        weatherRVModelArrayList      = new ArrayList<>();
+
+
         weatherRVAdapter = new WeatherRVAdapter(this, weatherRVModelArrayList);
         weatherRw.setAdapter(weatherRVAdapter);
 
         locationManager = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
+
         if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION)
-                != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission
+                != PackageManager.PERMISSION_GRANTED && 
+                ActivityCompat.checkSelfPermission
                 (this, Manifest.permission.ACCESS_COARSE_LOCATION)
                 != PackageManager.PERMISSION_GRANTED) {
-            ActivityCompat.requestPermissions(MainActivity.this, new String[]
-                    {Manifest.permission.ACCESS_FINE_LOCATION, Manifest.permission.
-                            ACCESS_COARSE_LOCATION}, PERMISSION_CODE);
+                ActivityCompat.requestPermissions(MainActivity.this, new String[]
+                {Manifest.permission.ACCESS_FINE_LOCATION, Manifest.permission.
+                ACCESS_COARSE_LOCATION}, PERMISSION_CODE);
         }
 
        // Location location = locationManager.getLastKnownLocation(LocationManager.NETWORK_PROVIDER);
